@@ -1,3 +1,5 @@
+'use strict';
+
 const BinaryTree = require('./BinarySearchTree');
 const Queue = require('./Queue');
 //1.  a. 11 -> 5 -> 6 -> 8
@@ -42,9 +44,9 @@ Implement your algorithm to find a book whose Dewey and book title is provided.
 // What is its pre-order traversal?   
 // post-order:  5 7 6 9 11 10 8.
 // pre-order:  8 6 5 7 10 9 11
-          //      8
-          //   6     10
-          // 5  7   9   11
+//      8
+//   6     10
+// 5  7   9   11
                                         
 
 const dataArr = [25, 15, 50, 10, 24, 35, 70, 4, 12, 18, 31, 44, 66, 90, 22];
@@ -123,3 +125,27 @@ function queue(){
 }
 
 queue();
+
+let sharePrices = [128, 97, 121, 123, 98, 97, 105];
+function maxProfit(sharePrices) {
+  const results = [];
+  for (let i = 0; i < sharePrices.length - 1; i++) {
+    const element = sharePrices[i];
+    
+    const result = sharePrices[i + 1] - element;
+
+    results.push(result); 
+  } 
+  let profit = 0;
+  for (let j = 0; j < results.length; j++) {
+    const element = results[j];
+    if (element > 0) {
+      profit += element; 
+    }
+  }
+  return profit; 
+}
+
+maxProfit(sharePrices); 
+
+
